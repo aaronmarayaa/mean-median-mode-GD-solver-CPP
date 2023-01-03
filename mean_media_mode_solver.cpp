@@ -10,6 +10,9 @@ int main(){
     float arr_frequency[num_of_class];
     float arr_for_x[num_of_class];
     float arr_for_fx[num_of_class];
+    float arr_for_cf_a[num_of_class];
+    float arr_for_cf_b[num_of_class];
+    arr_for_cf_a[-1] = 0;
     for(int i = 0; i < num_of_class; i++){
         cout << "\nEnter low class value: ";
             cin >> arr_low[i];
@@ -23,6 +26,8 @@ int main(){
         arr_for_fx[i] = arr_for_x[i] * arr_frequency[i];
         cout << "fx = " << arr_for_fx[i] << endl;
 
+        arr_for_cf_a[i] = arr_for_cf_a[i-1] + arr_frequency[i];
+        cout << "cf = " << arr_for_cf_a[i] << endl;
     }
 
     return 0;
