@@ -65,6 +65,27 @@ int modal_class(float frequency[], int num_of_class){
     return max;
 }
 
+void for_mode(float frequency[], int num_of_class, float low_class[], float high_class[]){
+    float lmo;
+    float delta_one;
+    float delta_two;
+    float interval;
+    float delta;
+    float mode;
+    frequency[-1] = 0;
+    for(int i = 0; i < num_of_class; i++){
+    lmo = low_class[i] - 0.5;
+    delta_one = frequency[i] - frequency[i - 1];
+    delta_two = frequency[i] - frequency[i + 1];
+    interval = high_class[i] + 1 - low_class[i];
+        if(modal_class(frequency, num_of_class) == frequency[i]){
+            delta = delta_one + delta_two;
+            mode = lmo + ((delta_one / delta) * interval);
+        }
+    }
+    cout << "Mode = " << mode << endl;
+}
+
 int main(){
     int num_of_class;
     cout << "How many classes? ";
@@ -96,6 +117,8 @@ int main(){
 
     for_mean(arr_frequency, arr_for_fx, num_of_class);
     for_median(arr_low, arr_high, arr_frequency, num_of_class, arr_for_cf_a);
+    for_mode(arr_frequency, num_of_class, arr_low, arr_high);
+
 
     return 0;
 }
