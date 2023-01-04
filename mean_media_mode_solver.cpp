@@ -87,6 +87,8 @@ void for_mode(float frequency[], int num_of_class, float low_class[], float high
 }
 
 int main(){
+    cout << "\nThis is a solver for mean, median, and mode value.\n";
+    cout << "Placing the set of classes should be from LOWEST to HIGHEST.\n\n";
     int num_of_class;
     cout << "How many classes? ";
     cin >> num_of_class;
