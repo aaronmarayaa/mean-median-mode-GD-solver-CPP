@@ -53,6 +53,18 @@ void for_median(float low_class[], float high_class[], float frequency[], int nu
         cout << "Median = " << median << endl;
 }
 
+int modal_class(float frequency[], int num_of_class){
+    int max = 0;
+    for(int i = 0; i < num_of_class; i++){
+        for(int k = 0; k < num_of_class; k++){
+            if(max < frequency[k]){
+                max = frequency[k];
+            }
+        }
+    }
+    return max;
+}
+
 int main(){
     int num_of_class;
     cout << "How many classes? ";
