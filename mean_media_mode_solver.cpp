@@ -24,8 +24,7 @@ void for_median(float low_class[], float high_class[], float frequency[], int nu
         }
 
     //This formula will determine which class is the median if it is under the scope of a certain cf
-    n_divide_2 = sum_of_frequency / 4; 
-    //This is divide by four since the for_median function takes the frequency value in the for+_mean function+
+    n_divide_2 = sum_of_frequency / 2; 
     
     float median = 0;
         //if n_divide_2 is less than the cf of the first class; then execute the body
@@ -96,7 +95,6 @@ int main(){
     float arr_for_x[num_of_class];
     float arr_for_fx[num_of_class];
     float arr_for_cf_a[num_of_class];
-    float arr_for_cf_b[num_of_class];
     arr_for_cf_a[-1] = 0;
     for(int i = 0; i < num_of_class; i++){
         cout << "\nEnter low class value: ";
