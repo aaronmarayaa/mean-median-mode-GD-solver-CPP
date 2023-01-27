@@ -2,8 +2,8 @@
 using namespace std;
 
 void for_mean(float frequency[], float fx[], int num_of_class){
-    float sum_of_frequency;
-    float sum_of_fx;
+    float sum_of_frequency = 0;
+    float sum_of_fx = 0;
     for(int i = 0; i < num_of_class; i++){
         sum_of_frequency += frequency[i];
         sum_of_fx += fx[i];
@@ -17,7 +17,7 @@ void for_mean(float frequency[], float fx[], int num_of_class){
 }    
 
 void for_median(float low_class[], float high_class[], float frequency[], int num_of_class, float cf[]){
-    float sum_of_frequency;
+    float sum_of_frequency = 0;
     float n_divide_2;
         for(int j = 0; j < num_of_class; j++){ //This will add all the frequency value
             sum_of_frequency += frequency[j];
@@ -27,7 +27,7 @@ void for_median(float low_class[], float high_class[], float frequency[], int nu
     n_divide_2 = sum_of_frequency / 4; 
     //This is divide by four since the for_median function takes the frequency value in the for+_mean function+
     
-    float median;
+    float median = 0;
         //if n_divide_2 is less than the cf of the first class; then execute the body
         if(n_divide_2 <= cf[0]){ 
             float lmd = low_class[0] - 0.5;
@@ -56,11 +56,9 @@ void for_median(float low_class[], float high_class[], float frequency[], int nu
 int modal_class(float frequency[], int num_of_class){
     int max = 0;
     for(int i = 0; i < num_of_class; i++){
-        for(int k = 0; k < num_of_class; k++){
-            if(max < frequency[k]){
-                max = frequency[k];
+            if(max < frequency[i]){
+                max = frequency[i];
             }
-        }
     }
     return max;
 }
