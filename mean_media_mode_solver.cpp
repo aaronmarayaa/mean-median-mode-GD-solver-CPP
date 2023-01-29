@@ -89,38 +89,38 @@ int main(){
     int number_of_class;
     cout << "How many classes? ";
     cin >> number_of_class;
-    float arr_low[number_of_class];
-    float arr_high[number_of_class];
-    float arr_frequency[number_of_class];
-    float arr_for_x[number_of_class];
-    float arr_for_fx[number_of_class];
-    float arr_for_cf[number_of_class];
-    arr_for_cf[-1] = 0;
+    float array_for_low_class[number_of_class];
+    float array_for_high_class[number_of_class];
+    float array_for_frequency[number_of_class];
+    float array_for_x[number_of_class];
+    float array_for_fx[number_of_class];
+    float array_for_cf[number_of_class];
+    array_for_cf[-1] = 0;
     for(int i = 0; i < number_of_class; i++){
         cout << "\nEnter low class value: ";
-            cin >> arr_low[i];
+            cin >> array_for_low_class[i];
 
         cout << "Enter high class value: ";
-            cin >> arr_high[i];
+            cin >> array_for_high_class[i];
 
-        cout << arr_low[i] << " - " << arr_high[i] << endl;
+        cout << array_for_low_class[i] << " - " << array_for_high_class[i] << endl;
         
         cout << "frequency: ";
-            cin >> arr_frequency[i];
+            cin >> array_for_frequency[i];
 
-        arr_for_x[i] = (arr_low[i] + arr_high[i])/2;
-        cout << "x = " << arr_for_x[i] << endl;
+        array_for_x[i] = (array_for_low_class[i] + array_for_high_class[i])/2;
+        cout << "x = " << array_for_x[i] << endl;
         
-        arr_for_fx[i] = arr_for_x[i] * arr_frequency[i];
-        cout << "fx = " << arr_for_fx[i] << endl;
+        array_for_fx[i] = array_for_x[i] * array_for_frequency[i];
+        cout << "fx = " << array_for_fx[i] << endl;
 
-        arr_for_cf[i] = arr_for_cf[i-1] + arr_frequency[i];
-        cout << "cf = " << arr_for_cf[i] << endl;
+        array_for_cf[i] = array_for_cf[i-1] + array_for_frequency[i];
+        cout << "cf = " << array_for_cf[i] << endl;
     }
 
-    for_mean(arr_frequency, arr_for_fx, number_of_class);
-    for_median(arr_low, arr_high, arr_frequency, number_of_class, arr_for_cf);
-    for_mode(arr_frequency, number_of_class, arr_low, arr_high);
+    for_mean(array_for_frequency, array_for_fx, number_of_class);
+    for_median(array_for_low_class, array_for_high_class, array_for_frequency, number_of_class, array_for_cf);
+    for_mode(array_for_frequency, number_of_class, array_for_low_class, array_for_high_class);
 
 
     return 0;
