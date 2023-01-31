@@ -38,7 +38,18 @@ $~$
 ***
 After loop this loop statement get the datas. It will now solve for the ***mean, median, mode*** value.
 
-first it will solve for the ***mean*** value:
+first it will solve for the ***mean*** value. The mean formula of grouped data is:
+
+$$
+\bar{x} = \frac{\sum fx}{n}
+$$
+>The _`mean` variable_ represents the ***$\bar{x}$*** ,<br/>
+the _`sum_of_fx` variable_ represents the ***${\sum fx}$*** ,<br/>
+the `sum_of_frequency` variable represents the ***$n$***
+
+$~$
+
+The function has a parameter of `frequency[]` which foreshadows `array_for_frequency[]` variable; `fx[]` which foreshadows `array_for_fx[]` variable; and `number_of_class` which foreshadows `number_of_class` variable.
 ```cpp
 void for_mean(float frequency[], float fx[], int number_of_class){
     float sum_of_frequency = 0;
@@ -54,8 +65,6 @@ void for_mean(float frequency[], float fx[], int number_of_class){
     cout << "\nMean = " << mean << endl;
 } 
 ```
-
-This function has a parameter of `frequency[]` which foreshadows `array_for_frequency` variable; `fx[]` which foreshadows `array_for_fx` variable; and `number_of_class` which foreshadows `number_of_class` variable.
 
 $~$
 The first statement inside the function is a loop statement which takes the `sum_of_frequency` and the `sum_of_fx`.
@@ -82,8 +91,22 @@ Finally, we will divide `sum_of_fx` to `sum_of_frequency` to get the value of `m
     cout << "\nMean = " << mean << endl;
 ```
 
----
-Next is the value of ***median***:
+$~$
+***
+Next is the value of ***median***, the formula for median is:
+
+$$
+\tilde{x} = Lmd + (\frac{\frac{n}{2} - <cf}{fmd})i
+$$
+
+>The _`median`_ variable represents the ***$\tilde{x}$*** , <br/>
+the _`lmd`_ variable represents the ***$Lmd$*** , <br/>
+the _`n_divide_2`_ variable represets the ***$\frac{n}{2}$*** , <br/>
+the _`cf[i - 1]`_ variable represents the ***$<cf$*** , <br/>
+the _`fmd`_ variable represents the ***$fmd$*** , <br/>
+the _`interval`_ variable represents the ***$i$*** .
+
+$~$
 ```cpp
 void for_median(float low_class[], float high_class[], float frequency[], int number_of_class, float cf[]){
     float sum_of_frequency = 0;
