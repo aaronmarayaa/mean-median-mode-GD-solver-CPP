@@ -49,7 +49,7 @@ the `sum_of_frequency` variable represents the ***$n$***
 
 $~$
 
-The function has a parameter of `frequency[]` which foreshadows `array_for_frequency[]` variable; `fx[]` which foreshadows `array_for_fx[]` variable; and `number_of_class` which foreshadows `number_of_class` variable.
+The function has a parameter of `frequency[]` which foreshadows `array_for_frequency[]` variable; `fx[]` which foreshadows `array_for_fx[]` variable; and `number_of_class` which foreshadows `number_of_class` variable inside the `main()` function.
 ```cpp
 void for_mean(float frequency[], float fx[], int number_of_class){
     float sum_of_frequency = 0;
@@ -107,6 +107,7 @@ the _`fmd`_ variable represents the ***$fmd$*** , <br/>
 the _`interval`_ variable represents the ***$i$*** .
 
 $~$
+This `for_median()` function solve for the mean value which has the parameter of `low-class[]` which foreshadows the `array_for_low_class[]` variable; `high_class[]` which foreshadows the `array_for_high_class[]` variable; `frequency[]` which foreshadows the `array_for_frequency[]` variable; `number_of_class` which foreshadows the `number_of_class` variable, `cf[]` which foreshadows the `array_for_cf[]` variable inside the `main` function;
 ```cpp
 void for_median(float low_class[], float high_class[], float frequency[], int number_of_class, float cf[]){
     float sum_of_frequency = 0;
