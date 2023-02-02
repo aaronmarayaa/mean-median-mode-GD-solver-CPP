@@ -97,7 +97,7 @@ Finally, we will divide `sum_of_fx` to `sum_of_frequency` to get the value of `m
 
 $~$
 ***
-Next is the value of the ***median***, the formula for the ***median** is:
+Next is the value of the ***median***, the formula for the ***median*** is:
 
 $$
 \tilde{x} = Lmd + (\frac{\frac{n}{2} - <cf}{fmd})i
