@@ -105,7 +105,7 @@ $$
 
 >The _`median`_ variable represents the ***$\tilde{x}$*** , <br/>
 the _`lmd`_ variable represents the ***$Lmd$*** , <br/>
-the _`n_divide_2`_ variable represets the ***$\frac{n}{2}$*** , <br/>
+the _`n_divide_2`_ variable represents the ***$\frac{n}{2}$*** , <br/>
 the _`cf[i - 1]`_ variable represents the ***$<cf$*** , <br/>
 the _`fmd`_ variable represents the ***$fmd$*** , <br/>
 the _`interval`_ variable represents the ***$i$*** .
@@ -212,4 +212,98 @@ Since the $<cf$ is the value of less than the median class' `cf[]`, the second v
     }
         cout << "Median = " << median << endl;
 ```
+>There's also a `cf[-1] = cf[0]` declaration in the code block, which means if the loop is about to take the less than of the first element in the array(`cf[i - 1]`), the `cf[-1]`(because cf[0 - 1]) initialized as the first element in the array(`cf[-1] = cf[0];`); so that the 'cf[-1]` would not be a garbage value. 
 
+***
+After getting the ***mean*** and the ***median*** value; the program will now solve for the ***mode*** value.
+But first, the program will get the modal class of data:
+
+The `modal_class` function has a parameter of `frequency[]` which foreshadows the `array_for_frequency[]` variable, and `number_of_class` which foreshadows the `number_of_class` variable inside the `main()` function.
+```cpp
+int modal_class(float frequency[], int number_of_class){
+    int max = 0;
+    for(int i = 0; i < number_of_class; i++){
+            if(max < frequency[i]){
+                max = frequency[i];
+            }
+    }
+    return max;
+}
+```
+its function is to take the maximum value in the array of `frequency[]` and assign as the value of `max` variable, then return `max`.
+
+$~$
+Finally, the ***mode*** value; ***mode*** formula is:
+$$
+\hat{x} = Lmo + [\frac{\Delta1}{\Delta1 + \Delta2}]i
+$$
+
+>The `mode` variable represents ***$\hat{x}$*** , <br/>
+the `lmo` variable represents ***$Lmo$*** , <br/>
+the `delta_one` variable represents ***$\Delta1$*** , <br/>
+the `delta_two` variable represents ***$\Delta2$*** , <br/>
+the `interval` variable represents ***$i$*** .
+
+$~$
+This `for_mode()` function solves for the mode value; it has `frequency[]` parameter which foreshadows the `array_for_frequency[]` variable, `number_of_class` parameter which foreshadows the `number_of_class`, `low_class` which foreshadows the `array_for_low_class`, `high_class` which foreshadows the `array_for_high_class` in the `main()` function.
+```cpp
+void for_mode(float frequency[], int number_of_class, float low_class[], float high_class[]){
+    float lmo;
+    float delta_one;
+    float delta_two;
+    float interval;
+    float delta;
+    float mode;
+    frequency[-1] = 0;
+    for(int i = 0; i < number_of_class; i++){
+    lmo = low_class[i] - 0.5;
+    delta_one = frequency[i] - frequency[i - 1];
+    delta_two = frequency[i] - frequency[i + 1];
+    interval = high_class[i] + 1 - low_class[i];
+        if(modal_class(frequency, number_of_class) == frequency[i]){
+            delta = delta_one + delta_two;
+            mode = lmo + ((delta_one / delta) * interval);
+        }
+    }
+    cout << "Mode = " << mode << endl;
+}
+```
+Inside the function variables have been declared to easily recognize every value.
+```cpp
+    float lmo;
+    float delta_one;
+    float delta_two;
+    float interval;
+    float delta;
+    float mode;
+```
+$~$
+The program will loop to get the value of `delta_one`, `delta_two`, `lmo`, and `interval`.
+```cpp
+    for(int i = 0; i < number_of_class; i++){
+        lmo = low_class[i] - 0.5;
+        delta_one = frequency[i] - frequency[i - 1];
+        delta_two = frequency[i] - frequency[i + 1];
+        interval = high_class[i] + 1 - low_class[i];
+    }
+```
+$~$
+Then the program use `if` statement to check if the highest value solved by the `modal_class()` function is equals to the current value of `frequency[]` while looping.
+```cpp
+    if(modal_class(frequency, number_of_class) == frequency[i]){
+                delta = delta_one + delta_two;
+                mode = lmo + ((delta_one / delta) * interval);
+    }
+```
+if so, then solve for the ***mode*** value, the print it.
+```cpp
+    cout << "Mode = " << mode << endl;
+```
+
+***
+Lastly, to make this functions execute, it was called inside the `main()` function.
+```cpp
+    for_mean(array_for_frequency, array_for_fx, number_of_class);
+    for_median(array_for_low_class, array_for_high_class, array_for_frequency, number_of_class, array_for_cf);
+    for_mode(array_for_frequency, number_of_class, array_for_low_class, array_for_high_class);
+```
