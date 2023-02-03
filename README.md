@@ -44,9 +44,10 @@ First, it will solve for the ***mean*** value. The mean formula for grouped data
 $$
 \bar{x} = \frac{\sum fx}{n}
 $$
->The `mean` variable represents ***$\bar{x}$*** ,<br/>
- `sum_of_fx` variable represents ***${\sum fx}$*** ,<br/>
- `sum_of_frequency` variable represents ***$n$***
+
+>The `mean` variable represents $\bar{x}$ ,<br/>
+ `sum_of_fx` variable represents ${\sum fx}$ ,<br/>
+ `sum_of_frequency` variable represents $n$
 
 $~$
 
@@ -97,18 +98,18 @@ Finally, we will divide `sum_of_fx` to `sum_of_frequency` to get the value of `m
 
 $~$
 ***
-Next is the value of the ***median***, the formula for the ***median** is:
+Next is the value of the ***median***, the formula for the ***median*** is:
 
 $$
-\tilde{x} = Lmd + (\frac{\frac{n}{2} - <cf}{fmd})i
+\tilde{x} = lmd + (\frac{\frac{n}{2} - < cf}{fmd})i
 $$
 
->The `median` variable represents  ***$\tilde{x}$*** , <br/>
- `lmd` variable represents  ***$Lmd$*** , <br/>
- `n_divide_2` variable represents  ***$\frac{n}{2}$*** , <br/>
- `cf[i - 1]` variable represents  ***$<cf$*** , <br/>
- `fmd` variable represents  ***$fmd$*** , <br/>
- `interval` variable represents  ***$i$*** .
+>The `median` variable represents  $\tilde{x}$ , <br/>
+ `lmd` variable represents  $Lmd$ , <br/>
+ `n_divide_2` variable represents  $\frac{n}{2}$ , <br/>
+ `cf[i - 1]` variable represents  $< cf$ , <br/>
+ `fmd` variable represents  $fmd$ , <br/>
+ `interval` variable represents  $i$ .
 
 $~$
 
@@ -172,8 +173,8 @@ float sum_of_frequency = 0;
 |16-22|16 |
 |23-29|26 |
 
-Median class = **23-29**
-$<cf$ = **16**
+Median class = **23-29** <br/>
+$< cf$ = **16**
 >The **18.5** value of `n_divide_2` is within the scope of `cf` value, which is 26.
 
 $~$
@@ -191,12 +192,12 @@ float median = 0;
             median = (((n_divide_2 - cf[0]) / fmd) * interval);
         }
 ```
->This code uses `cf[0]` as the value of $<cf$ because there is no less than value than the first value.
+>This code uses `cf[0]` as the value of $< cf$ because there is no less than value than the first value.
 
 but if `n_divide_2` is not within the scope of the first value of `cf[]`, the second version will be executed.
 
 $~$
-Since $<cf$ is the value of less than the median class' `cf[]`, the second version on getting the value of median uses `cf[i - 1]`:
+Since $< cf$ is the value of less than the median class' `cf[]`, the second version on getting the value of median uses `cf[i - 1]`:
 ```cpp
  cf[-1] = cf[0];
     for(int i = 0; i < number_of_class; i++){
@@ -213,6 +214,8 @@ Since $<cf$ is the value of less than the median class' `cf[]`, the second versi
         cout << "Median = " << median << endl;
 ```
 >There's also a `cf[-1] = cf[0]` declaration in the code block, which means if the loop is about to take the less than of the first element in the array (`cf[i - 1]`), the `cf[-1]` (because cf[0 - 1]) is initialized as the first element in the array (`cf[-1] = cf[0];`); so that the 'cf[-1]` would not be a garbage value. 
+
+$~$
 
 ***
 After getting the ***mean*** and ***median*** values; the program will now solve for the ***mode*** value.
@@ -233,16 +236,18 @@ int modal_class(float frequency[], int number_of_class){
 Its function is to take the maximum value in the array of `frequency[]` and assign it as the value of the `max` variable, then return `max`.
 
 $~$
+
 Finally, the ***mode*** value; ***mode*** formula is:
+
 $$
 \hat{x} = Lmo + [\frac{\Delta1}{\Delta1 + \Delta2}]i
 $$
 
->The `mode` variable represents ***$\hat{x}$*** , <br/>
-`lmo` variable represents ***$Lmo$*** , <br/>
-`delta_one` variable represents ***$\Delta1$*** , <br/>
-`delta_two` variable represents ***$\Delta2$*** , <br/>
-`interval` variable represents ***$i$*** .
+>The `mode` variable represents $\hat{x}$ , <br/>
+`lmo` variable represents $Lmo$ , <br/>
+`delta_one` variable represents $\Delta1$ , <br/>
+`delta_two` variable represents $\Delta2$ , <br/>
+`interval` variable represents $i$ .
 
 $~$
 This `for_mode()` function solves for the mode value; it has a `frequency[]` parameter that foreshadows the `array_for_frequency[]` variable; a `number_of_class` parameter that foreshadows the `number_of_class`, `low_class` parameter that foreshadows the `array_for_low_class`, and a `high_class` parameter that foreshadows the `array_for_high_class` in the `main()` function.
