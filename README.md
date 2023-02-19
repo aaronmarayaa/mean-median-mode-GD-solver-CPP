@@ -1,6 +1,12 @@
 # Mean, Median, Mode solver
 
  This is a solver that allows users to input data, and the computer will compute the ***mean, median, and mode*** of ***grouped data*** using a specific formula.
+ $~$
+  - [Mean](#mean)
+  - [Median](#median)
+  - [Mode](#mode)
+  
+  $~$
 
 First, it will ask how much data you're about to input:
  ```cpp
@@ -35,10 +41,10 @@ for(int i = 0; i < number_of_class; i++){
         cout << "cf = " << array_for_cf[i] << endl;
     }
 ```
-$~$
-***
 After this loop statement gets the data. It will now solve for the ***mean, median,*** and ***mode*** values.
 
+$~$
+## Mean
 First, it will solve for the ***mean*** value. The mean formula for grouped data is:
 
 $$
@@ -97,7 +103,7 @@ Finally, we will divide `sum_of_fx` to `sum_of_frequency` to get the value of `m
 ```
 
 $~$
-***
+## Median
 Next is the value of the ***median***, the formula for the ***median*** is:
 
 $$
@@ -216,8 +222,7 @@ Since $< cf$ is the value of less than the median class' `cf[]`, the second vers
 >There's also a `cf[-1] = cf[0]` declaration in the code block, which means if the loop is about to take the less than of the first element in the array (`cf[i - 1]`), the `cf[-1]` (because cf[0 - 1]) is initialized as the first element in the array (`cf[-1] = cf[0];`); so that the 'cf[-1]` would not be a garbage value. 
 
 $~$
-
-***
+## Mode
 After getting the ***mean*** and ***median*** values; the program will now solve for the ***mode*** value.
 But first, the program will get the modal class of data:
 
